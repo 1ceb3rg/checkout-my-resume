@@ -11,9 +11,7 @@ const customComponents: Partial<PortableTextReactComponents> = {
   hardBreak: () => <> </>,
   marks: {
     link: ({ children, value }) => {
-      const target = (value?.href || "").startsWith("http")
-        ? "_blank"
-        : undefined;
+      const target = (value?.href || "").startsWith("http") ? "_blank" : undefined;
       return (
         <a
           href={value?.href}
@@ -42,36 +40,30 @@ export default function Section(props: { section: Section }) {
         items &&
           items.map((item: Item) => (
             <Container key={item.id}>
-              <dl className="gap-y-1 md:gap-y-2 gap-x-2 grid grid-cols-1 sm:grid-cols-2">
+              <dl className="grid grid-cols-1 gap-y-1 gap-x-2 sm:grid-cols-2 md:gap-y-2">
                 <dt className="sr-only">Company</dt>{" "}
-                <dd className="font-semibold  col-span-2 sm:col-span-1 text-slate-700 text-lg md:text-xl">
+                <dd className="col-span-2  text-lg font-semibold text-slate-700 sm:col-span-1 md:text-xl">
                   {item.title}
                 </dd>
                 <dt className="sr-only">Position</dt>
-                <dd className=" text-slate-800 col-span-2 sm:col-span-1 md:text-lg w-full flex sm:justify-end   ">
+                <dd className=" col-span-2 flex w-full text-slate-800 sm:col-span-1 sm:justify-end md:text-lg   ">
                   <div className="max-w-[65%%]">{item.subTitle}</div>
                 </dd>
                 {item?.description && (
                   <>
                     <dt className="sr-only">Description</dt>
-                    <dd className=" text-sm  px-2 md:px-4 col-span-2 prose   prose-slate max-w-full  ">
-                      <PortableText
-                        value={item?.description}
-                        components={customComponents}
-                      />
+                    <dd className=" prose  prose-slate col-span-2 max-w-full px-2   text-sm md:px-4  ">
+                      <PortableText value={item?.description} components={customComponents} />
                     </dd>
                   </>
                 )}
                 <dt className="sr-only">Highlights</dt>
-                <dd className="col-span-2 empty:hidden   prose-sm prose-p:not-prose  prose prose-slate max-w-full">
+                <dd className="prose-p:not-prose prose   prose-sm prose-slate  col-span-2 max-w-full empty:hidden">
                   <ul className="  w-full  ">
                     {item?.tasks &&
                       item.tasks.map((task) => (
                         <li key={task.id}>
-                          <PortableText
-                            components={customComponents}
-                            value={task.description}
-                          />
+                          <PortableText components={customComponents} value={task.description} />
 
                           {task.subtask && (
                             <ul className="">

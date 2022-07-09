@@ -6,15 +6,12 @@ import type {
   NextPage,
 } from "next";
 import Head from "next/head";
-import Image from "next/image";
+
 import Header from "../../components/Header";
 import Section from "../../components/Section";
 
-import SectionTitle from "../../components/SectionTitle";
 import { sanityClient } from "../../utils/sanity.server";
-const Home: NextPage = (
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
-) => {
+const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { resume } = props;
   const { person, sections } = resume;
   console.log({ resume });
@@ -22,31 +19,28 @@ const Home: NextPage = (
     <div>
       <Head>
         <title>{resume.person?.name}</title>
-        <meta
-          name="description"
-          content={`${resume.person?.name} |  ${resume?.jobTitle}`}
-        />
+        <meta name="description" content={`${resume.person?.name} |  ${resume?.jobTitle}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="m-2">
         <Header />
 
-        <h1 className="max-w-3xl mx-auto flex flex-col mb-4  relative  md:justify-center   md:flex-row   items-baseline ">
+        <h1 className="relative mx-auto mb-4 flex max-w-3xl flex-col  items-baseline   md:flex-row   md:justify-center ">
           {/* <div className="flex absolute -bottom-3 bg-origin-border -ml-2  mx-auto h-[2px] w-[100%]">
             <div className="w-full  flex-none bg-origin-border blur-sm bg-gradient-to-l from- to-transparent via-blue-200"></div>
             <div className="-ml-[100%] w-full flex-none blur-[1px] bg-gradient-to-l from-transparent to-transparent via-blue-200"></div>
             <div className="-ml-[100%] w-full flex-none blur- bg-gradient-to-l from-transparent to-transparent via-blue-200"></div>
           </div> */}
-          <div className=" flex flex-col relative   md:justify-center   md:flex-row  z-10">
-            <span className="relative inline-block w-fit  before:bg-gradient-to-r before:-scale-y-105 before:from-blue-300 before:to-blue-300   before:absolute before:-inset-1 before:block lg:before:translate-y-.5   lg:before:skew-y-[.50deg]    md:pr-2 ">
-              <span className="relative font-semibold whitespace-nowrap text-white text-5xl ">
+          <div className=" relative z-10 flex flex-col gap-y-1 md:flex-row  md:justify-center">
+            <span className="relative inline-block w-fit  before:absolute before:-inset-1 before:block before:-scale-y-105   before:bg-gradient-to-r before:from-blue-300 before:to-blue-300   md:pr-2    lg:before:skew-y-[2deg] ">
+              <span className="relative whitespace-nowrap text-5xl font-semibold text-white ">
                 {" "}
                 {person?.name}
               </span>
             </span>
-            <span className="relative inline-block md:ml-3  lg:before:translate-y-0.5 lg:before:scale-y-105  md:before:bg-blue-50 transition-[translate] before:absolute before:-inset-1 before:block     md:pr-2 ">
-              <span className=" relative md:whitespace-nowrap font-semibold text-5xl bg-clip-text bg-gradient-to-r from-slate-500 to-slate-400  text-transparent md:pl-2">
+            <span className="relative inline-block before:absolute  before:-inset-1 before:block before:bg-no-repeat before:transition-[background-size]   before:duration-1000   md:ml-3 md:pr-2 md:before:bg-blue-50 lg:before:translate-y-[.3rem] lg:before:scale-y-[1.08]     lg:hover:before:bg-[length:0%_0%] ">
+              <span className=" relative bg-gradient-to-r from-slate-500 to-slate-400 bg-clip-text text-5xl  font-semibold text-transparent  transition-[background-color]  md:whitespace-nowrap md:pl-2">
                 {resume?.jobTitle}
               </span>
             </span>
@@ -54,9 +48,7 @@ const Home: NextPage = (
         </h1>
 
         {sections &&
-          sections.map((section: Section) => (
-            <Section key={section.id} section={section} />
-          ))}
+          sections.map((section: Section) => <Section key={section.id} section={section} />)}
       </div>
 
       {/* <footer className="text-center text-slate-500">

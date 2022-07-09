@@ -1,5 +1,3 @@
-
-
 interface Item {
   subTitle: string;
   id: string;
@@ -10,7 +8,7 @@ interface Item {
   tasks: Array<Task>;
 }
 interface Section {
-  id:string
+  id: string;
   title: string;
   items: Array<Item>;
 }
