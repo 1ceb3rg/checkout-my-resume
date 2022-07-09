@@ -14,6 +14,8 @@ import education from './education'
 import person from './person'
 import resume from './resume'
 import jobSection from './jobSection'
+import item from './item'
+import section from './section'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -29,6 +31,8 @@ export default createSchema({
     person,
     education,
     resume,
+    item,
+    section,
     job,
     jobSection,
     // When added to this list, object types can be used as

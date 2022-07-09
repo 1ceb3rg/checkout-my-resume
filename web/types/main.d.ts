@@ -1,19 +1,21 @@
-interface Job {
-  position: string;
+
+
+interface Item {
+  subTitle: string;
   id: string;
-  company: string;
+  title: string;
   startDate: string;
   endDate: string;
-  description: string;
+  description: PortableTextProps;
   tasks: Array<Task>;
 }
 interface Section {
   id:string
   title: string;
-  jobs: Array<Job>;
+  items: Array<Item>;
 }
 interface Task {
-  description: string;
+  description: PortableTextProps;
   id: string;
-  subtask: Array<string >;
+  subtask: Array<string>;
 }

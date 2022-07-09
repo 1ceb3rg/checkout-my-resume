@@ -8,14 +8,14 @@ module.exports = {
     extend: {
       keyframes: {
         "slide-in": {
-          '0%': { transform: 'translateX(-100%)' },
+          '0%': { transform: 'translateX(-300%)' },
           '100%': { transform: 'translateX(0)' },
         }
       },
       animation: {
-        "slide-in": 'slide-in 1s ease-in-out ',
+        "slide-in": 'slide-in 3s ease-in-out  ',
       }
     },
   },
-  plugins: [],
+  plugins: [  require('@tailwindcss/typography')],
 }

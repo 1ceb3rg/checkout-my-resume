@@ -9,6 +9,8 @@ Checkout my resume allows you to create different resume versions using [Sanity]
 
 ## Setup 
 
+It's a monorepo `/web/` is the nextjs folder and `/studio` is the sanity folder
+
 ### Sanity
 
 1. Create a free account at [Sanity](https://sanity.io).
@@ -21,3 +23,10 @@ Checkout my resume allows you to create different resume versions using [Sanity]
 2. Change the formula for the link field to your website and <your-name>
 3. Change the formula for localhost to <your-name>
 
+### Next.js
+1. Set the env variables .env.local for local use, or in the enviroment you deploy to
+2. Deploy
+3. You can add templates in `/templates`
+
+## Creating a resume
+Go to the sanity studio
