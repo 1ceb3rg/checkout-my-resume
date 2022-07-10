@@ -17,3 +17,8 @@ interface Task {
   id: string;
   subtask: Array<string>;
 }
+interface Link {
+  id: string;
+  title: string;
+  url: string;
+}

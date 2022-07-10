@@ -1,16 +1,34 @@
-import type {
-  GetStaticProps,
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
 
 import Header from "../../components/Header";
 import Section from "../../components/Section";
 
 import { sanityClient } from "../../utils/sanity.server";
+
+const TextLink = ({ url, title }: { url: string; title: string }) => {
+  return (
+    <a
+      className="before:red-600 relative before:absolute before:-left-1 before:-bottom-2 before:-z-10 before:block before:h-2  before:w-full before:origin-right before:-translate-y-1.5 before:translate-x-1 before:scale-x-0 before:rounded-sm before:bg-pink-600 before:bg-opacity-40 before:transition-transform before:duration-200 hover:before:origin-left hover:before:scale-x-100 print:underline"
+      target={"_blank"}
+      rel={"noreferrer"}
+      href={url}
+    >
+      {title}
+    </a>
+  );
+};
+
+// const TextLink = ({ url, title }: { url: string; title: string }) => {
+//   return (
+//     <span className="relative inline-block before:absolute before:-inset-1 before:block before:w-0  before:-translate-y-1.5  before:translate-x-1 before:border-b-4 before:border-red-600 before:transition-[width] hover:before:w-[96%] md:pr-2">
+//       <a className="relative" href={url}>
+//         {title}
+//       </a>
+//     </span>
+//   );
+// };
+
 const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { resume } = props;
   const { person, sections } = resume;
@@ -26,26 +44,34 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
       <div className="m-2">
         <Header />
 
-        <h1 className="relative mx-auto mb-4 flex max-w-3xl flex-col  items-baseline   md:flex-row   md:justify-center ">
+        <h1 className="relative mx-auto mb-4 flex max-w-3xl flex-col  items-baseline print:flex-row print:justify-center   md:flex-row  md:justify-center ">
           {/* <div className="flex absolute -bottom-3 bg-origin-border -ml-2  mx-auto h-[2px] w-[100%]">
             <div className="w-full  flex-none bg-origin-border blur-sm bg-gradient-to-l from- to-transparent via-blue-200"></div>
             <div className="-ml-[100%] w-full flex-none blur-[1px] bg-gradient-to-l from-transparent to-transparent via-blue-200"></div>
             <div className="-ml-[100%] w-full flex-none blur- bg-gradient-to-l from-transparent to-transparent via-blue-200"></div>
           </div> */}
-          <div className=" relative z-10 flex flex-col gap-y-1 md:flex-row  md:justify-center">
-            <span className="relative inline-block w-fit  before:absolute before:-inset-1 before:block before:-scale-y-105   before:bg-gradient-to-r before:from-blue-300 before:to-blue-300   md:pr-2    lg:before:skew-y-[2deg] ">
+          <div className=" relative z-10 flex flex-col gap-y-1  print:flex-row print:justify-center md:flex-row  md:justify-center">
+            <span className="relative inline-block w-fit  before:absolute before:-inset-1 before:block before:-scale-y-105   before:bg-gradient-to-r before:from-blue-300 before:to-blue-300   print:before:skew-y-[2deg] print:before:scale-y-105  md:pr-2    lg:before:skew-y-[2deg]">
               <span className="relative whitespace-nowrap text-5xl font-semibold text-white ">
-                {" "}
                 {person?.name}
               </span>
             </span>
-            <span className="relative inline-block before:absolute  before:-inset-1 before:block before:bg-no-repeat before:transition-[background-size]   before:duration-1000   md:ml-3 md:pr-2 md:before:bg-blue-50 lg:before:translate-y-[.3rem] lg:before:scale-y-[1.08]     lg:hover:before:bg-[length:0%_0%] ">
-              <span className=" relative bg-gradient-to-r from-slate-500 to-slate-400 bg-clip-text text-5xl  font-semibold text-transparent  transition-[background-color]  md:whitespace-nowrap md:pl-2">
+            <span className="lg:hover:before:bg- relative inline-block  before:absolute before:-inset-1 before:block before:bg-no-repeat   before:transition-[background-size]   before:duration-1000 print:translate-y-[.3rem] print:scale-y-[1.08] md:ml-3 md:pr-2 md:before:bg-blue-50  lg:before:translate-y-[.3rem]     lg:before:scale-y-[1.08] ">
+              <span className=" relative bg-gradient-to-r from-slate-500 to-slate-400 bg-clip-text text-5xl  font-semibold text-transparent transition-[background-color]  print:text-slate-600  md:whitespace-nowrap md:pl-2 ">
                 {resume?.jobTitle}
               </span>
             </span>
           </div>
         </h1>
+
+        <div className="mx-auto mt-4 -mb-4 flex max-w-3xl flex-wrap gap-x-2 text-base md:-mb-2 md:mt-8  md:px-2">
+          <TextLink url={`mailto:${person.email}`} title={person.email} />
+
+          {person.links &&
+            person.links.map((link: Link) => (
+              <TextLink url={link.url} title={link.title} key={link.id} />
+            ))}
+        </div>
 
         {sections &&
           sections.map((section: Section) => <Section key={section.id} section={section} />)}

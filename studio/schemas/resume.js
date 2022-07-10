@@ -41,17 +41,7 @@ export default {
         },
 
 
-        {
-            name: 'jobs',
-            title: 'Jobs',
-            type: 'array',
-            of: [{
-                type: 'reference',
-                to: [{
-                    type: 'job',
-                }]
-            }]
-        }
+       
 
     ]
 }

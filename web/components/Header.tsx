@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className=" absolute sticky top-0 z-50 hidden flex-wrap items-center justify-between  p-2 shadow-md shadow-slate-900/5 transition duration-500 dark:bg-transparent dark:shadow-none lg:flex">
+    <header className=" sticky top-0 z-50 hidden flex-wrap items-center justify-between  p-2  shadow-slate-900/5 transition duration-500 dark:bg-transparent dark:shadow-none lg:flex">
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
         <a
           className="group"

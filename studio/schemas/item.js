@@ -1,4 +1,3 @@
-// A sanity schema for a job on a resume with the following fields: position, company, startDate, endDate, description, and array of tasks.
 export default {
     name: 'item',
     title: 'Item',
@@ -15,12 +14,12 @@ export default {
         {
             name: 'startDate',
             title: 'Start date',
-            type: 'date',
+            type: 'string',
         },
         {
             name: 'endDate',
             title: 'End date',
-            type: 'date',
+            type: 'string',
         },
         {
             name: 'description',
@@ -31,6 +30,8 @@ export default {
             name: 'tasks',
             title: 'Tasks',
             type: 'array',
+           
+            
             of: [{
                 type: 'object',
                 name: 'task',
@@ -47,7 +48,13 @@ export default {
                             type: 'string'
                         }]
                     }
-                ]
+                ],
+                preview: {
+                    select: {
+                      title: 'description',
+                      
+                    }
+                  }
             }],
         }
 
