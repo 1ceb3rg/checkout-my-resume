@@ -32,29 +32,25 @@ export async function middleware(request: NextRequest) {
     const res = await fetch(`${AIRTABLE_API_URL}/${recordId}`, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
     });
-    if (res.status !== 200)
-      return NextResponse.redirect(new URL("/404", request.nextUrl));
+    if (res.status !== 200) return NextResponse.redirect(new URL("/404", request.nextUrl));
     const data = await res.json();
-    const updatedHits = data.fields.hits + 1;
+
     const resumeType = data.fields["Resume Type"];
-    console.log({ updatedHits });
 
     const update = await fetch(`${AIRTABLE_API_URL}/${recordId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fields: { "Last Opened": today, hits: updatedHits },
+        fields: { "Last Viewed": today, Hits: +data.fields.Hits + 1 },
       }),
     });
+    console.log(update.status);
 
     return NextResponse.rewrite(
-      new URL(
-        `/templates/userOrder?name=${resumeType ?? "Default"}`,
-        request.url
-      )
+      new URL(`/templates/userOrder?name=${resumeType ?? "Default"}`, request.url)
     );
   } else return NextResponse.redirect(new URL("/404", request.nextUrl));
 }

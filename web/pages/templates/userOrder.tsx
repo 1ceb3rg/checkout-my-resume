@@ -100,12 +100,12 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query, params } = context;
 
-  console.log({ query, params });
+  // console.log({ query, params });
   const resume = await sanityClient.fetch(
     `*[_type == "resume" && name==$name  ]{..., sections[]->{...,items[]->{...}}  ,person->}`,
     { name: query.name ?? "Default" }
   );
-  console.log({ resume });
+  // console.log({ resume });
   return { props: { resume: resume[0] ?? null } };
   // ...
 };

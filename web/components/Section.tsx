@@ -26,9 +26,9 @@ const customComponents: Partial<PortableTextReactComponents> = {
 
 export default function Section(props: { section: Section }) {
   const { section } = props;
-  console.log({ section });
+  // console.log({ section });
   const { title, items } = section;
-  console.log({ items });
+  // console.log({ items });
 
   return (
     <>
