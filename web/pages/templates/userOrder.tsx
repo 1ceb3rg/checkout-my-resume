@@ -32,7 +32,7 @@ const TextLink = ({ url, title }: { url: string; title: string }) => {
 const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { resume } = props;
   const { person, sections } = resume;
-  console.log({ resume });
+  // console.log({ resume });
   return (
     <div>
       <Head>
