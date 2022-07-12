@@ -36,7 +36,7 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
   return (
     <div>
       <Head>
-        <title>{`${resume.person?.name} | Resume`}</title>
+        <title>{resume.person?.name}</title>
         <meta name="description" content={`${resume.person?.name} |  ${resume?.jobTitle}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
