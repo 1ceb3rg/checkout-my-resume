@@ -93,6 +93,15 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
           ></path>
         </svg>
       </footer> */}
+      <footer className="mx-auto mt-8 h-20 w-full max-w-3xl border-t border-slate-300 md:mt-12">
+        <div className="flex h-full flex-col items-center justify-center align-middle text-sm text-slate-500">
+          {" "}
+          <TextLink
+            url="https://github.com/1ceb3rg/checkout-my-resume"
+            title="Checkout this resume's source code"
+          />{" "}
+        </div>
+      </footer>
     </div>
   );
 };
