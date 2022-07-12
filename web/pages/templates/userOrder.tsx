@@ -36,7 +36,7 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
   return (
     <div>
       <Head>
-        <title>{resume.person?.name}</title>
+        <title>{`${resume.person?.name} | Resume`}</title>
         <meta name="description" content={`${resume.person?.name} |  ${resume?.jobTitle}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -56,8 +56,8 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
                 {person?.name}
               </span>
             </span>
-            <span className="lg:hover:before:bg- relative inline-block  before:absolute before:-inset-1 before:block before:bg-no-repeat   before:transition-[background-size]   before:duration-1000 print:translate-y-[.3rem] print:scale-y-[1.08] md:ml-3 md:pr-2 md:before:bg-blue-50  lg:before:translate-y-[.3rem]     lg:before:scale-y-[1.08] ">
-              <span className=" relative bg-gradient-to-r from-slate-500 to-slate-400 bg-clip-text text-5xl  font-semibold text-transparent transition-[background-color]  print:text-slate-600  md:whitespace-nowrap md:pl-2 ">
+            <span className=" relative inline-block  before:absolute before:-inset-1 before:block before:bg-no-repeat   before:transition-[background-size]   before:duration-1000 print:translate-y-[.3rem] print:scale-y-[1.08] md:ml-3 md:pr-2 md:before:bg-blue-50  lg:before:translate-y-[.3rem]     lg:before:scale-y-[1.08] ">
+              <span className=" relative bg-gradient-to-r from-slate-500 to-slate-400 bg-clip-text text-5xl  font-semibold text-transparent  print:text-slate-600  md:whitespace-nowrap md:pl-2 ">
                 {resume?.jobTitle}
               </span>
             </span>
@@ -93,7 +93,7 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
           ></path>
         </svg>
       </footer> */}
-      <footer className="mx-auto mt-8 h-20 w-full max-w-3xl border-t border-slate-300 md:mt-12">
+      <footer className="mx-auto mt-8 h-20 w-full max-w-3xl border-t border-slate-300 print:hidden md:mt-12">
         <div className="flex h-full flex-col items-center justify-center align-middle text-sm text-slate-500">
           {" "}
           <TextLink
