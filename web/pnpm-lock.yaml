@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fontsource/open-sans': ^4.5.10
-  '@fontsource/roboto': ^4.5.7
   '@portabletext/react': ^1.0.6
   '@tailwindcss/typography': ^0.5.3
   '@types/node': 18.0.0
@@ -25,7 +24,6 @@ specifiers:
 
 dependencies:
   '@fontsource/open-sans': 4.5.10
-  '@fontsource/roboto': 4.5.7
   '@portabletext/react': 1.0.6_react@18.2.0
   airtable: 0.11.4
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
@@ -84,10 +82,6 @@ packages:
 
   /@fontsource/open-sans/4.5.10:
     resolution: {integrity: sha512-MrtTDfWb1Tu9YxVh2KaKmsKBn6O3KL/lHZS0KRKK58jgqvdwuiDt4QW4udmW4FQf0XOWgnZ+4vKUF80F3SqBAA==}
-    dev: false
-
-  /@fontsource/roboto/4.5.7:
-    resolution: {integrity: sha512-m57UMER23Mk6Drg9OjtHW1Y+0KPGyZfE5XJoPTOsLARLar6013kJj4X2HICt+iFLJqIgTahA/QAvSn9lwF1EEw==}
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
