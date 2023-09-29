@@ -14,7 +14,7 @@
     "airtable": "^0.11.4",
     "next": "12.2.0",
     "next-sanity": "^0.5.2",
-    "node-fetch": "^3.2.6",
+    "node-fetch": "^3.2.10",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
